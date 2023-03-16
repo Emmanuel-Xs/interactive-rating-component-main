@@ -34,7 +34,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: github](https://github.com/Emmanuel-Xs/interactive-rating-component-main/)
+- Solution URL: [github](https://github.com/Emmanuel-Xs/interactive-rating-component-main/)
 - Live Site URL: [netlify](https://harmonious-cheesecake-b97b99.netlify.app/)
 
 ## My process
