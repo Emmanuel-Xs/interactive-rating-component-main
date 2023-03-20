@@ -147,10 +147,11 @@ main {
 
 
 .styled-rating {
-	display: block;
+	display: inline-block;
 	width: 60%;
+	line-height: 1;
 	font-weight: var(--fw-light);
-	padding: 0.5em 1em;
+	padding: 0.585em 1em 0.5em;
 	color: var(--clr-primary-orange-500);
 	background-color: var(--clr-neutral-blue-950);
 	border-radius: 1.5em;
