@@ -2,26 +2,31 @@ const button = document.querySelector(".submit-btn")
 const ratingCard = document.querySelector(".rating-card")
 const ratingsContainer = document.querySelector(".ratings")
 const ratings = document.querySelectorAll(".rating")
-const ratingCardHeight = ratingCard.offsetHeight
-const template = document.querySelector("template").content
+const template = document.querySelector( "template" ).content
 
-//gsap animation
-gsap.fromTo(
-	ratingCard,
-	{ opacity: 0, scale: 0 },
-	{ opacity: 1, scale: 1, duration: .8, ease: "steps(12)" }
-)
+let selectedRatingValue 
+
 
 ratingsContainer.addEventListener("click", (e) => {
 	if (!e.target.matches(".rating")) return
 
+	let selectedRating = e.target
+	let alreadyActive = selectedRating.classList.contains("active")
+	
+	if ( alreadyActive ) {
+		selectedRatingValue = null
+		selectedRating.classList.remove("active")
+		return
+	}
+
+	// remove active class from other ratings
 	ratings.forEach((rating) => rating.classList.remove("active"))
 
-	let selectedRating = e.target
 	selectedRating.classList.add("active")
-	let selectedRatingValue = selectedRating.textContent
+	selectedRatingValue = selectedRating.textContent
+})
 
-	// button eventListener
+// button eventListener
 	button.addEventListener("click", () => {
 		if (!Number(selectedRatingValue)) return
 		ratingCard.innerHTML = ""
@@ -32,7 +37,6 @@ ratingsContainer.addEventListener("click", (e) => {
 
 		//rating card
 		ratingCard.classList.add("center")
-		ratingCard.style.minHeight = ratingCardHeight + "px"
 		ratingCard.appendChild(clone)
 
 		// gsap animation
@@ -42,4 +46,3 @@ ratingsContainer.addEventListener("click", (e) => {
 			{ opacity: 1, duration: 1, ease: "steps(12)" }
 		)
 	})
-})
